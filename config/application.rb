@@ -32,7 +32,9 @@ module Tempra
     config.time_zone = "Asia/Tokyo"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
+    # rails g 実行時に余計なファイルを生成させない
+    config.generators.assets = nil
+    config.generators.helper = nil
     config.generators.system_tests = nil
   end
 end
