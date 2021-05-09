@@ -22,6 +22,10 @@ module Tempra
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # デフォルトロケールは日本語
+    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.yml")]
+    config.i18n.default_locale = :ja
+
     # タイムゾーンは日本時間
     config.time_zone = "Asia/Tokyo"
 
