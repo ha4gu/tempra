@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails"
-# Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -15,8 +14,7 @@ require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# Require the gems listed in Gemfile, including any gems you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module Tempra
@@ -24,13 +22,8 @@ module Tempra
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
+    # タイムゾーンは日本時間
     config.time_zone = "Asia/Tokyo"
-    # config.eager_load_paths << Rails.root.join("extras")
 
     # rails g 実行時に余計なファイルを生成させない
     config.generators.assets = nil
