@@ -24,4 +24,8 @@ end
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+  gem "standard", require: false
 end
