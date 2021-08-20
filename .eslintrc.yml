@@ -5,3 +5,7 @@ extends:
   - eslint:recommended
   - airbnb
   - prettier
+settings:
+  import/resolver:
+    webpack:
+      config: "config/webpack/development.js"
