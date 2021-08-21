@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @dummy.title %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @dummy.detail %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @dummy.stock %>
+</p>
+
+<p>
+  <strong>Ordered on:</strong>
+  <%= @dummy.ordered_on %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @dummy.confirmed %>
+</p>
+
+<%= link_to "Edit", edit_dummy_path(@dummy) %> |
+<%= link_to "Back", dummies_path %>
