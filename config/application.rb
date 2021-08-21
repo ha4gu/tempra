@@ -33,5 +33,8 @@ module Tempra
     config.generators.assets = nil
     config.generators.helper = nil
     config.generators.system_tests = nil
+
+    # ActiveStorageの画像プロセッサとしてVipsを使う
+    config.active_storage.variant_processor = :vips
   end
 end
