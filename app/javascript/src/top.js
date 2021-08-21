@@ -3,4 +3,4 @@ window.onload = () => {
   if (str) {
     str.style.color = 'orange';
   }
-}
+};
