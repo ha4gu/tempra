@@ -17,6 +17,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webpacker", "~> 5.0"
 
 group :development do
+  gem "annotate"
   gem "listen", "~> 3.3"
   gem "rack-mini-profiler", "~> 2.0"
   gem "rails-erd"
