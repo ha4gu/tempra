@@ -1,0 +1,8 @@
+# Configuration for Rails ERD https://github.com/voormedia/rails-erd
+
+warn: false
+exclude:
+  - ActiveRecord::InternalMetadata
+  - ActiveRecord::SchemaMigration
+  - ActiveStorage::VariantRecord
+  - ActiveStorage::Blob
