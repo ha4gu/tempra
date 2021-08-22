@@ -1,0 +1,47 @@
+<%= form_with(model: dummy) do |form| %>
+  <% if dummy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dummy.errors.count, "error") %> prohibited this dummy from being saved:</h2>
+
+      <ul>
+        <% dummy.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_area :detail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.number_field :stock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ordered_on %>
+    <%= form.date_select :ordered_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confirmed %>
+    <%= form.check_box :confirmed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @dummy.title %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @dummy.detail %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @dummy.stock %>
+</p>
+
+<p>
+  <strong>Ordered on:</strong>
+  <%= @dummy.ordered_on %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @dummy.confirmed %>
+</p>
+
+<div>
+  <% if @dummy.image.attached? %>
+    <p>
+      <strong>Image:</strong>
+    </p>
+    <%= image_tag(@dummy.image.variant(resize_to_fit: [400, 400]).processed) %>
+  <% else %>
+    <p>
+      <strong>Image:</strong>
+      none
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Edit", edit_dummy_path(@dummy) %> |
+<%= link_to "Back", dummies_path %>
