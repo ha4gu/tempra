@@ -54,6 +54,6 @@ class DummiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def dummy_params
-    params.require(:dummy).permit(:title, :detail, :stock, :ordered_on, :confirmed)
+    params.require(:dummy).permit(:title, :detail, :stock, :ordered_on, :confirmed, :image)
   end
 end
