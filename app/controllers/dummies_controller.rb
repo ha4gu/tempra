@@ -3,7 +3,7 @@ class DummiesController < ApplicationController
 
   # GET /dummies
   def index
-    @dummies = Dummy.all
+    @dummies = Dummy.with_attached_image
   end
 
   # GET /dummies/1
