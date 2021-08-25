@@ -13,3 +13,17 @@ class Dummy < ApplicationRecord
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: dummies
+#
+#  id         :bigint           not null, primary key
+#  confirmed  :boolean          default(FALSE), not null
+#  detail     :text
+#  ordered_on :date
+#  stock      :integer
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

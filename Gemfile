@@ -17,8 +17,11 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webpacker", "~> 5.0"
 
 group :development do
+  gem "annotate"
+  gem "bullet"
   gem "listen", "~> 3.3"
   gem "rack-mini-profiler", "~> 2.0"
+  gem "rails-erd"
   gem "spring"
   gem "web-console", ">= 4.1.0"
 end
@@ -27,6 +30,8 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 
   gem "erb_lint", require: false
+  gem "pry-byebug"
+  gem "pry-rails"
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "standard", require: false
