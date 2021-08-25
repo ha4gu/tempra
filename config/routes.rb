@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: "top#index"
 
   resources :dummies
+
+  # 管理画面
+  mount RailsAdmin::Engine, at: "/kanri", as: "rails_admin"
 end
 
 # == Route Map
