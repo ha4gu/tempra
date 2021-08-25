@@ -30,6 +30,8 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 
   gem "erb_lint", require: false
+  gem "pry-byebug"
+  gem "pry-rails"
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "standard", require: false
