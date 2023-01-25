@@ -18,4 +18,9 @@ group :development do
 end
 group :development, :test do
   gem "debug"
+
+  # RuboCop
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+  gem "standard", "~> 1.22", require: false
 end
