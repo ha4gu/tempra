@@ -23,6 +23,7 @@ group :development do
 end
 group :development, :test do
   gem "debug"
+  gem "rspec-rails"
 
   # RuboCop
   gem "rubocop-rails", require: false
