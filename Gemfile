@@ -30,3 +30,7 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "standard", "~> 1.22", require: false
 end
+
+group :test do
+  gem "shoulda-matchers"
+end
