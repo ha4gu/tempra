@@ -20,6 +20,7 @@ gem "turbo-rails"
 
 group :development do
   gem "annotate"
+  gem "rails-erd"
   gem "web-console"
 end
 
