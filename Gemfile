@@ -19,8 +19,10 @@ gem "tailwindcss-rails"
 gem "turbo-rails"
 
 group :development do
+  gem "annotate"
   gem "web-console"
 end
+
 group :development, :test do
   gem "debug"
   gem "factory_bot_rails"
