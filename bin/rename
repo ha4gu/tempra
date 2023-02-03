@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# アプリケーション名を書き換えるスクリプト
+
+set -eu
+
+### 現在のアプリケーション名
+CURRENT_NAME=tempra
+CURRENT_NAME_IN_SNAKE=tempra
+CURRENT_NAME_IN_PASCAL=Tempra
+CURRENT_NAME_IN_UPCASE=TEMPRA
+
+### 基準ディレクトリの取得
+BASE_DIR=$(cd $(dirname $0); cd ../; pwd)
+
+### GNU版sedコマンドのチェック
+GNU_SED_IN_MACOS=gsed
+
+if [ "$(uname)" == "Darwin" ]; then # macOS
+  if type ${GNU_SED_IN_MACOS} > /dev/null 2>&1; then
+    SED_COMMAND=${GNU_SED_IN_MACOS}
+  else
+    echo "このスクリプトではmacOSに標準でインストールされているBSD版sedではなく、GNU版sedが使用されています。"
+    echo "Homebrewを利用してGNU版sedをインストールしてください。以下のコマンドでインストールが可能なはずです。"
+    echo "$ brew install gnu-sed"
+    exit 1
+  fi
+else # Linux
+  SED_COMMAND="sed"
+fi
+
+### 引数の個数チェック
+if [ $# -ne 1 ]; then
+  echo "Error: リネーム後の名称を1つだけ入力してください" 1>&2
+  exit 1
+else
+  NEW_NAME=$(echo $1 | tr '[:upper:]' '[:lower:]' | tr '_' '-')
+  NEW_NAME_IN_SNAKE=$(echo ${NEW_NAME} | tr '-' '_')
+  NEW_NAME_IN_PASCAL=$(echo ${NEW_NAME} | ${SED_COMMAND} -r 's/(^|-)(.)/\U\2\E/g')
+  NEW_NAME_IN_UPCASE=$(echo ${NEW_NAME} | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+fi
+
+### 新名称表示
+echo "リネーム後の名称は以下の通りとなります"
+echo "-----------------------------------------"
+echo "ハイフン区切り: ${NEW_NAME}"
+echo "スネークケース: ${NEW_NAME_IN_SNAKE}"
+echo "パスカルケース: ${NEW_NAME_IN_PASCAL}"
+echo
+
+### リネーム処理
+read -n1 -p "リネーム処理を実行しますか？ (y/N): " answer
+if [[ ${answer} = [yY] ]]; then
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_PASCAL}/${NEW_NAME_IN_PASCAL}/g" "${BASE_DIR}/app/views/layouts/application.html.erb"
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_PASCAL}/${NEW_NAME_IN_PASCAL}/g" "${BASE_DIR}/config/application.rb"
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/cable.yml"
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME}/${NEW_NAME}/g"                     "${BASE_DIR}/config/environments/production.rb"
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/database.yml"
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_UPCASE}/${NEW_NAME_IN_UPCASE}/g" "${BASE_DIR}/config/database.yml"
+
+  # このスクリプトファイル自体の書き換え
+  ${SED_COMMAND} -i -e "s/CURRENT_NAME=${CURRENT_NAME}/CURRENT_NAME=${NEW_NAME}/g"                                         "$0"
+  ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_SNAKE=${CURRENT_NAME_IN_SNAKE}/CURRENT_NAME_IN_SNAKE=${NEW_NAME_IN_SNAKE}/g"     "$0"
+  ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_PASCAL=${CURRENT_NAME_IN_PASCAL}/CURRENT_NAME_IN_PASCAL=${NEW_NAME_IN_PASCAL}/g" "$0"
+  ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_UPCASE=${CURRENT_NAME_IN_UPCASE}/CURRENT_NAME_IN_UPCASE=${NEW_NAME_IN_UPCASE}/g" "$0"
+
+  echo
+  echo "リネーム処理が完了しました。"
+fi
