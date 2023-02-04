@@ -15,7 +15,6 @@ gem "rails-i18n"
 gem "rails_admin"
 gem "rails_admin-i18n"
 gem "stimulus-rails"
-gem "tailwindcss-rails"
 gem "turbo-rails"
 
 group :development do
