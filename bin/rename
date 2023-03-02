@@ -63,3 +63,6 @@ if [[ ${answer} = [yY] ]]; then
   echo
   echo "リネーム処理が完了しました。"
 fi
+
+### config/master.key と config/credentials.yml.enc の生成
+bin/rails credentials:edit
