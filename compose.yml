@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - RUBY_VERSION=3.2.1
+        - RAILS_ENV=development
+        - RUBYGEMS_VERSION=3.4.6
+        - FOREMAN_VERSION=0.87.2
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOSTNAME=db
+      - DATABASE_USERNAME=postgres
+    init: true
+    ports:
+      - "3000:3000"
+    tmpfs: /rails/tmp/pids
+    volumes:
+      - .:/rails
+      - gem_packages:/rails/vendor/bundle
+      - npm_packages:/rails/node_modules
+      - app_storage:/rails/storage
+      - /rails/public/assets
+      - /rails/tmp
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - TZ=Asia/Tokyo
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  gem_packages:
+  npm_packages:
+  app_storage:
+  postgres_data:
