@@ -8,7 +8,6 @@ set -eu
 CURRENT_NAME=tempra
 CURRENT_NAME_IN_SNAKE=tempra
 CURRENT_NAME_IN_PASCAL=Tempra
-CURRENT_NAME_IN_UPCASE=TEMPRA
 
 ### 基準ディレクトリの取得
 BASE_DIR=$(cd $(dirname $0); cd ../; pwd)
@@ -37,7 +36,6 @@ else
   NEW_NAME=$(echo $1 | tr '[:upper:]' '[:lower:]' | tr '_' '-')
   NEW_NAME_IN_SNAKE=$(echo ${NEW_NAME} | tr '-' '_')
   NEW_NAME_IN_PASCAL=$(echo ${NEW_NAME} | ${SED_COMMAND} -r 's/(^|-)(.)/\U\2\E/g')
-  NEW_NAME_IN_UPCASE=$(echo ${NEW_NAME} | tr '[:lower:]' '[:upper:]' | tr '-' '_')
 fi
 
 ### 新名称表示
@@ -56,13 +54,11 @@ if [[ ${answer} = [yY] ]]; then
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/cable.yml"
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME}/${NEW_NAME}/g"                     "${BASE_DIR}/config/environments/production.rb"
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/database.yml"
-  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_UPCASE}/${NEW_NAME_IN_UPCASE}/g" "${BASE_DIR}/config/database.yml"
 
   # このスクリプトファイル自体の書き換え
   ${SED_COMMAND} -i -e "s/CURRENT_NAME=${CURRENT_NAME}/CURRENT_NAME=${NEW_NAME}/g"                                         "$0"
   ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_SNAKE=${CURRENT_NAME_IN_SNAKE}/CURRENT_NAME_IN_SNAKE=${NEW_NAME_IN_SNAKE}/g"     "$0"
   ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_PASCAL=${CURRENT_NAME_IN_PASCAL}/CURRENT_NAME_IN_PASCAL=${NEW_NAME_IN_PASCAL}/g" "$0"
-  ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_UPCASE=${CURRENT_NAME_IN_UPCASE}/CURRENT_NAME_IN_UPCASE=${NEW_NAME_IN_UPCASE}/g" "$0"
 
   echo
   echo "リネーム処理が完了しました。"
