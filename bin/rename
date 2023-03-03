@@ -54,6 +54,7 @@ if [[ ${answer} = [yY] ]]; then
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/cable.yml"
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME}/${NEW_NAME}/g"                     "${BASE_DIR}/config/environments/production.rb"
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/database.yml"
+  ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/compose.prd.yml"
 
   # このスクリプトファイル自体の書き換え
   ${SED_COMMAND} -i -e "s/CURRENT_NAME=${CURRENT_NAME}/CURRENT_NAME=${NEW_NAME}/g"                                         "$0"

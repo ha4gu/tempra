@@ -1,0 +1,39 @@
+services:
+  prd_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prd
+      args:
+        - RUBY_VERSION=3.2.1
+        - RAILS_ENV=production
+        - RUBYGEMS_VERSION=3.4.6
+        - FOREMAN_VERSION=0.87.2
+    depends_on:
+      - prd_db
+    environment:
+      - DATABASE_HOSTNAME=prd_db
+      - DATABASE_USERNAME=tempra_production
+      - DATABASE_PASSWORD=tempra_production
+      - RAILS_SERVE_STATIC_FILES=true
+      - RAILS_LOG_TO_STDOUT=true
+    init: true
+    ports:
+      - "3000:3000"
+    tmpfs: /rails/tmp/pids
+    volumes:
+      - ./config/master.key:/rails/config/master.key
+      - prd_storage:/rails/storage
+  prd_db:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=tempra_production
+      - POSTGRES_PASSWORD=tempra_production
+      - TZ=Asia/Tokyo
+    ports:
+      - "5433:5432"
+    volumes:
+      - prd_postgres:/var/lib/postgresql/data
+
+volumes:
+  prd_storage:
+  prd_postgres:
