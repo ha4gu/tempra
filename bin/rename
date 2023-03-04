@@ -56,6 +56,9 @@ if [[ ${answer} = [yY] ]]; then
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/config/database.yml"
   ${SED_COMMAND} -i -e "s/${CURRENT_NAME_IN_SNAKE}/${NEW_NAME_IN_SNAKE}/g"   "${BASE_DIR}/compose.prd.yml"
 
+  # READMEのクリア
+  echo "# ${NEW_NAME_IN_PASCAL}" > "${BASE_DIR}/README.md"
+
   # このスクリプトファイル自体の書き換え
   ${SED_COMMAND} -i -e "s/CURRENT_NAME=${CURRENT_NAME}/CURRENT_NAME=${NEW_NAME}/g"                                         "$0"
   ${SED_COMMAND} -i -e "s/CURRENT_NAME_IN_SNAKE=${CURRENT_NAME_IN_SNAKE}/CURRENT_NAME_IN_SNAKE=${NEW_NAME_IN_SNAKE}/g"     "$0"
