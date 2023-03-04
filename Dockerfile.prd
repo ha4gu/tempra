@@ -34,7 +34,7 @@ RUN bundle config set --local jobs $(nproc) && \
     bundle config set --local silence_root_warning true && \
     bundle config set --local without development test
 
-# yarn install => /rails/node_modules
+# yarn install
 COPY package.json yarn.lock ./
 RUN yarn install
 
@@ -82,7 +82,6 @@ RUN bundle config set --local jobs $(nproc) && \
 COPY . .
 
 # build済みデータのコピー
-COPY --from=build /rails/node_modules /rails/node_modules
 COPY --from=build /rails/vendor/bundle /rails/vendor/bundle
 COPY --from=build /rails/public/assets /rails/public/assets
 
