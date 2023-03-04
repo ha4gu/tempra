@@ -9,7 +9,7 @@ gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "image_processing"
 gem "importmap-rails"
-gem "pg", "~> 1.1"
+gem "pg"
 gem "propshaft"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
@@ -34,7 +34,7 @@ group :development, :test do
   # RuboCop
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
-  gem "standard", "~> 1.22", require: false
+  gem "standard", "~> 1.24", require: false
 end
 
 group :test do

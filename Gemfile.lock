@@ -348,7 +348,7 @@ DEPENDENCIES
   faker
   image_processing
   importmap-rails
-  pg (~> 1.1)
+  pg
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4)
@@ -360,7 +360,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   shoulda-matchers
-  standard (~> 1.22)
+  standard (~> 1.24)
   stimulus-rails
   turbo-rails
   web-console
