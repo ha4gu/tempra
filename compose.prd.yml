@@ -16,6 +16,8 @@ services:
       - DATABASE_PASSWORD=tempra_production
       - RAILS_SERVE_STATIC_FILES=true
       - RAILS_LOG_TO_STDOUT=true
+      - RAILS_MAX_THREADS=8
+      - WEB_CONCURRENCY=4
     init: true
     ports:
       - "3000:3000"
