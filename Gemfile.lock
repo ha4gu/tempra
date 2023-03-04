@@ -117,6 +117,8 @@ GEM
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    friendly_id (5.5.0)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
@@ -346,6 +348,7 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
+  friendly_id
   image_processing
   importmap-rails
   pg

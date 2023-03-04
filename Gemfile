@@ -7,6 +7,7 @@ gem "active_storage_validations"
 gem "acts_as_list"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem "friendly_id"
 gem "image_processing"
 gem "importmap-rails"
 gem "pg"
