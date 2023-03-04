@@ -66,4 +66,10 @@ if [[ ${answer} = [yY] ]]; then
 fi
 
 ### config/master.key と config/credentials.yml.enc の生成
-bin/rails credentials:edit
+if [ ! -e config/master.key ] && [ ! -e config/credentials.yml.enc ]; then
+  read -n1 -p "config/master.keyとconfig/credentials.yml.encを生成しますか？ (y/N): " answer
+  if [[ ${answer} = [yY] ]]; then
+    bin/rails credentials:edit
+  fi
+  echo
+fi
