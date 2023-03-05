@@ -1,0 +1,10 @@
+ja:
+  attributes:
+    id: ID
+    name: 名前
+    position: 表示順
+    created_at: 作成日時
+    updated_at: 更新日時
+  activerecord:
+    models:
+    attributes:
