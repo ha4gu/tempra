@@ -1,0 +1,27 @@
+version: 2.1
+
+executors:
+  cimg-ruby:
+    docker:
+      - image: cimg/ruby:3.2.1
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_ACCESS_TOKEN
+
+jobs:
+  audit:
+    executor: cimg-ruby
+    steps:
+      - checkout
+      - run:
+          name: Install and execute bundler-audit
+          command: |
+            gem install bundler-audit
+            bundle-audit check --update
+
+workflows:
+  check:
+    jobs:
+      - audit:
+          context:
+            - default
