@@ -6,6 +6,10 @@ module Admin
       rails_admin do
         navigation_label "RailsAdmin"
 
+        object_label_method do
+          :email
+        end
+
         list do
           sort_by :id
 
@@ -18,9 +22,15 @@ module Admin
         end
 
         edit do
-          field :email
-          field :password
-          field :password_confirmation
+          field :email do
+            required true
+          end
+          field :password do
+            required true
+          end
+          field :password_confirmation do
+            required true
+          end
         end
       end
     end
