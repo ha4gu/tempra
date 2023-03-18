@@ -1,5 +1,7 @@
 class Administrator < ApplicationRecord
   devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable
+
+  include Admin::Administrator
 end
 
 # == Schema Information
