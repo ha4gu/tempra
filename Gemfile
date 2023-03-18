@@ -8,6 +8,7 @@ gem "acts_as_list"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "devise"
+gem "devise-i18n"
 gem "friendly_id"
 gem "image_processing"
 gem "importmap-rails"
