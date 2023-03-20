@@ -1,1 +1,2 @@
-Administrator.create(email: "9391978+ha4gu@users.noreply.github.com", password: "P@ssw0rd")
+Administrator.create(email: "admin@example.com", password: "P@ssw0rd")
+User.create(email: "user@example.com", password: "P@ssw0rd")
