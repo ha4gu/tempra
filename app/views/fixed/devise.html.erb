@@ -1,0 +1,47 @@
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <h2 class="title">認証状況確認</h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="content">
+    <% if notice.present? %>
+      <div class="notification is-info is-light"><%= notice %></div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div class="notification is-danger is-light"><%= alert %></div>
+    <% end %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>スコープ</th>
+          <th>ログイン済み</th>
+          <th>リンク</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User</td>
+          <td class=<%= user_signed_in? ? "has-text-success" : "has-text-danger" %>><%= user_signed_in? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to("ログイン", new_user_session_path, target: "_blank") %>
+            /
+            <%= link_to("ログアウト", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" }) %>
+          </td>
+        </tr>
+        <tr>
+          <td>Administrator</td>
+          <td class=<%= administrator_signed_in? ? "has-text-success" : "has-text-danger" %>><%= administrator_signed_in? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to("ログイン", new_administrator_session_path, target: "_blank") %>
+            /
+            <%= link_to("ログアウト", destroy_administrator_session_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" }) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
