@@ -1,5 +1,18 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :lockable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: %i[google_oauth2]
+
+  def self.from_oauth(response)
+    user = find_or_initialize_by(provider: response.provider, uid: response.uid)
+
+    if user.new_record?
+      user.email = response.info.email
+      user.password = Devise.friendly_token(64)
+      user.save!
+    end
+
+    user
+  end
 end
 
 # == Schema Information

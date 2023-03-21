@@ -25,7 +25,7 @@
       <tbody>
         <tr>
           <td>User</td>
-          <td class=<%= user_signed_in? ? "has-text-success" : "has-text-danger" %>><%= user_signed_in? ? "Yes" : "No" %></td>
+          <td class=<%= user_signed_in? ? "has-text-success" : "has-text-danger" %>><%= user_signed_in? ? "Yes (#{current_user.email})" : "No" %></td>
           <td>
             <%= link_to("ログイン", new_user_session_path, target: "_blank") %>
             /
