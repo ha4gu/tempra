@@ -58,20 +58,18 @@
             </div>
           </div>
 
-          <% if devise_mapping.rememberable? %>
-            <div class="field is-horizontal">
-              <div class="field-label">
-                <%= f.label(:remember_me, class: "label") %>
-              </div>
-              <div class="field-body">
-                <div class="field is-narrow">
-                  <div class="control">
-                    <%= f.check_box(:remember_me, checked: true, class: "checkbox") %>
-                  </div>
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <%= f.label(:remember_me, class: "label") %>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <%= f.check_box(:remember_me, checked: true, class: "checkbox") %>
                 </div>
               </div>
             </div>
-          <% end %>
+          </div>
 
           <div class="field is-horizontal">
             <div class="field-label">
