@@ -1,0 +1,75 @@
+<section class="hero is-small is-primary">
+  <div class="hero-body">
+    <h2 class="title"><%= t("devise.sessions.new.sign_in") %></h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="content">
+      <% if notice.present? %>
+        <div class="notification is-info is-light"><%= notice %></div>
+      <% end %>
+
+      <% if alert.present? %>
+        <div class="notification is-danger is-light"><%= alert %></div>
+      <% end %>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <%= f.label(:email, class: "label") %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <%= f.email_field(:email, autofocus: true, autocomplete: "email", class: "input") %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <%= f.label(:password, class: "label") %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <%= f.password_field(:password, autocomplete: "current-password", class: "input") %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <%= f.label(:remember_me, class: "label") %>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <%= f.check_box(:remember_me, checked: true, class: "checkbox") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <%= f.submit(t("devise.sessions.new.sign_in"), class: "button is-primary") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
