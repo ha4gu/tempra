@@ -3,7 +3,7 @@ version: 2.1
 executors:
   cimg-ruby:
     docker:
-      - image: cimg/ruby:3.2.1
+      - image: cimg/ruby:3.2.2
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_ACCESS_TOKEN

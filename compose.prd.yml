@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.prd
       args:
-        - RUBY_VERSION=3.2.1
+        - RUBY_VERSION=3.2.2
         - RAILS_ENV=production
         - RUBYGEMS_VERSION=3.4.6
         - FOREMAN_VERSION=0.87.2
