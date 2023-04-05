@@ -18,12 +18,12 @@ services:
       - RAILS_LOG_TO_STDOUT=true
       - RAILS_MAX_THREADS=8
       - WEB_CONCURRENCY=4
+      - SECRET_KEY_BASE=dummy
     init: true
     ports:
       - "3000:3000"
     tmpfs: /rails/tmp/pids
     volumes:
-      - ./config/master.key:/rails/config/master.key
       - prd_storage:/rails/storage
   prd_db:
     image: postgres:14

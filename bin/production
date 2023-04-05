@@ -2,10 +2,6 @@
 
 set -eu
 
-if [ ! -e config/master.key ]; then
-  bin/rails credentials:edit
-fi
-
 docker compose -f compose.prd.yml build
 docker compose -f compose.prd.yml run --rm prd_app bin/rails db:prepare
 docker compose -f compose.prd.yml up
