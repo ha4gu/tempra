@@ -6,7 +6,7 @@ services:
       args:
         - RUBY_VERSION=3.2.2
         - RAILS_ENV=development
-        - RUBYGEMS_VERSION=3.4.6
+        - RUBYGEMS_VERSION=3.4.10
         - FOREMAN_VERSION=0.87.2
     depends_on:
       - db
