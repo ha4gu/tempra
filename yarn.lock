@@ -162,10 +162,10 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-rails_admin@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/rails_admin/-/rails_admin-3.1.1.tgz#f0ddbdfb44c5cab01e360337a86e1ac5b5c94a6a"
-  integrity sha512-d0OAHKF0tM2gfTC9uBKIq0nZJb31mtde7oFmMGbWl/BOPiehffglGQKUtoSUxHBJlBKPiK8k8yiAbfzrf3kaFg==
+rails_admin@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/rails_admin/-/rails_admin-3.1.2.tgz#00d6d85b7a00c89c69b5dbf5f1f4620702626504"
+  integrity sha512-uIQHN27lBvlav6s5ppmOtVxKN8GIxyhHuDFc9ZbvWgFknR4zgG4/xEUGzKzQ9R34AEsfZ/t8cZbvtvgj+aXp4A==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@fortawesome/fontawesome-free" ">=5.15.0 <7.0.0"
@@ -189,10 +189,10 @@ regenerator-runtime@^0.13.11:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
-sass@^1.58.0:
-  version "1.59.3"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.59.3.tgz#a1ddf855d75c70c26b4555df4403e1bbf8e4403f"
-  integrity sha512-QCq98N3hX1jfTCoUAsF3eyGuXLsY7BCnCEg9qAact94Yc21npG2/mVOqoDvE0fCbWDqiM4WlcJQla0gWG2YlxQ==
+sass@^1.63.4:
+  version "1.63.4"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.63.4.tgz#caf60643321044c61f6a0fe638a07abbd31cfb5d"
+  integrity sha512-Sx/+weUmK+oiIlI+9sdD0wZHsqpbgQg8wSwSnGBjwb5GwqFhYNwwnI+UWZtLjKvKyFlKkatRK235qQ3mokyPoQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
