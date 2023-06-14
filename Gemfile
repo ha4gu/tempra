@@ -38,9 +38,12 @@ group :development, :test do
   gem "rspec-rails"
 
   # RuboCop
+  gem "rubocop-capybara", require: false
+  gem "rubocop-factory_bot", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
-  gem "standard", "~> 1.24", require: false
+  gem "rubocop-rubycw", require: false
+  gem "standard", "~> 1.29", require: false
 end
 
 group :test do
