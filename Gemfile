@@ -43,7 +43,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "rubocop-rubycw", require: false
-  gem "standard", "~> 1.29", require: false
+  gem "standard", "~> 1.30", require: false
 end
 
 group :test do
